@@ -1,0 +1,31 @@
+name: jsr-pay
+
+services:
+  jsr-pay-api:
+    container_name: jsr-pay-api
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    depends_on:
+      - jsr-pay-db
+    volumes:
+      - ../:/var/www/api
+
+  jsr-pay-db:
+    container_name: jsr-pay-db
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=jsr-pay
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data: {}
