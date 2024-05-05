@@ -1,22 +1,35 @@
 name: jsr-pay
 
 services:
-  jsr-pay-api:
+  # PHP
+  api:
     container_name: jsr-pay-api
     build:
       context: ../
       dockerfile: .docker/Dockerfile
-    ports:
-      - "8000:8000"
-    env_file:
-      - ../.env
-    depends_on:
-      - jsr-pay-db
+    working_dir: /var/www/api
     volumes:
       - ../:/var/www/api
+      - ../php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - jsr-pay-network
 
-  jsr-pay-db:
-    container_name: jsr-pay-db
+  # WEB SERVER
+  webserver:
+    image: nginx:alpine
+    container_name: jsr-pay-nginx
+    ports:
+      - "8030:8030"
+      - "443:443"
+    volumes:
+      - ../:/var/www/api
+      - ../nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - jsr-pay-network
+
+  # POSTGRESQL
+  postgres:
+    container_name: jsr-pay-postgres
     image: postgres:12
     ports:
       - "5432:5432"
@@ -26,6 +39,13 @@ services:
       - POSTGRES_DB=jsr-pay
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - jsr-pay-network
+
+networks:
+  jsr-pay-network:
+    driver: bridge
 
 volumes:
-  db-data: {}
+  db-data: 
+    driver: local
