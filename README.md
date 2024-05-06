@@ -1,15 +1,19 @@
-# Jsr Pay Project
+# Jsr Pay
 
-A project designed for monetary transfers management.
+A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and Docker.
 
 ## Requirements
-- php8.2^
-- composer2.5.8^
+- docker
+- docker-compose
 
 ## Setup
 
-1. Install dependencies: `composer install`
-2. Developing...
+After cloning the project, in the root project directory in the terminal:
+
+1. `cd .docker`
+2. `docker-compose up -d`
+3. `docker-compose exec api composer install`
+4. `docker-compose exec api php artisan migrate --seed`
 
 ## Run Tests
 
