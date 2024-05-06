@@ -19,7 +19,7 @@ use Illuminate\Database\Query\Builder;
  */
 class Wallet extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'wallets';
 

@@ -3,7 +3,7 @@
 namespace App\Ports\Outbound;
 use App\Domain\Entities\Customer;
 
-interface customerRepositoryPort
+interface CustomerRepositoryPort
 {
-    public function createCustomer(Customer $customer): void;
+    public function createCustomer(Customer $customer): int;
 }

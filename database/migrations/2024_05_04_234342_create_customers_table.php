@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('customer_type_id');
             $table->string('name', 100);
-            $table->string('cpf', 11);
-            $table->string('cnpj', 14);
+            $table->string('cpf', 11)->nullable();
+            $table->string('cnpj', 14)->nullable();
             $table->string('email', 100);
             $table->string('password', 64);
             $table->timestamps();

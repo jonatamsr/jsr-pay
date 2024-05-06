@@ -4,13 +4,16 @@ namespace App\Adapters\Outbound;
 
 use App\Domain\Entities\Customer;
 use App\Models\Customer as CustomerEloquentModel;
-use App\Ports\Outbound\customerRepositoryPort;
+use App\Ports\Outbound\CustomerRepositoryPort;
 
-class EloquentCustomerRepository implements customerRepositoryPort
+class EloquentCustomerRepository implements CustomerRepositoryPort
 {
-    public function createCustomer(Customer $customer): void {
+    public function createCustomer(Customer $customer): int
+    {
         $customerData = $customer->toArray();
         unset($customerData["id"]);
         $customerEloquentModel = CustomerEloquentModel::create($customerData);
+
+        return $customerEloquentModel->id;
     }
 }

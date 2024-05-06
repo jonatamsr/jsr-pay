@@ -8,7 +8,8 @@ class Customer extends Entity
     protected int $customer_type_id;
     protected string $name;
     protected string $email;
-    protected string $cpf_cnpj;
+    protected ?string $cpf = null;
+    protected ?string $cnpj = null;
     protected string $password;
 
     public function setId(int $id): void {

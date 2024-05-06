@@ -14,7 +14,8 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property int $customer_type_id
  * @property string $name
- * @property string $cpf_cnpj
+ * @property string|null $cpf
+ * @property string|null $cnpj
  * @property string $email
  * @property string $password
  * @property Carbon $created_at
@@ -35,7 +36,8 @@ class Customer extends Model
     protected $fillable = [
         'customer_type_id',
         'name',
-        'cpf_cnpj',
+        'cpf',
+        'cnpj',
         'email',
         'password',
     ];
