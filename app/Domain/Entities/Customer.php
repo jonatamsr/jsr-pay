@@ -12,11 +12,13 @@ class Customer extends Entity
     protected ?string $cnpj = null;
     protected string $password;
 
-    public function setId(int $id): void {
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
-    public function setPassword(string $password): void {
+    public function setPassword(string $password): void
+    {
         $this->password = $password;
     }
 }

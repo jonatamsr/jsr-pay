@@ -17,7 +17,8 @@ class CustomerService implements CustomerServicePort
         $this->eventDispatcher = $eventDispatcher;
     }
 
-    public function createCustomer(array $customerData): void {
+    public function createCustomer(array $customerData): void
+    {
         $customer = new Customer($customerData);
         $passwordHash = hash('sha256', $customerData['password']);
         $customer->setPassword($passwordHash);

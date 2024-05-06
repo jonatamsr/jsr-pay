@@ -13,7 +13,8 @@ class CustomerCreatedListener
         $this->walletService = $walletService;
     }
 
-    public function handle(CustomerCreated $event) {
+    public function handle(CustomerCreated $event)
+    {
         $this->walletService->createWallet($event->customerId);
     }
 }
