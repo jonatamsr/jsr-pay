@@ -41,7 +41,7 @@ Migrate the database with seeds
 ## Run Tests
 
 ```bash
-  docker-compose exec api php vendor/bin/phpunit
+  docker-compose exec api vendor/bin/phpunit
 ```
 
 ## Contributing
