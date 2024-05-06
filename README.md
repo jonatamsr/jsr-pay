@@ -2,18 +2,41 @@
 
 A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and Docker.
 
-## Requirements
+## Requirements ![Logo](resources\svg\icons8-docker.svg)
 - docker
 - docker-compose
 
 ## Setup
 
-After cloning the project, in the root project directory in the terminal:
+Clone the project
 
-1. `cd .docker`
-2. `docker-compose up -d`
-3. `docker-compose exec api composer install`
-4. `docker-compose exec api php artisan migrate --seed`
+```bash
+  git clone https://github.com/jonatamsr/jsr-pay.git
+```
+
+Go to the project docker files directory
+
+```bash
+  cd jsr-pay/.docker
+```
+
+Start the containers
+
+```bash
+  docker-compose up -d
+```
+
+Install the dependencies
+
+```bash
+  docker-compose exec composer install
+```
+
+Migrate the database with seeds
+
+```bash
+  docker-compose exec php artisan migrate --seed
+```
 
 ## Run Tests
 
