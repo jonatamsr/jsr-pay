@@ -5,7 +5,9 @@ namespace App\Adapters\Inbound\Controllers;
 use App\Ports\Inbound\CustomerServicePort;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
@@ -17,7 +19,23 @@ class CustomerController extends Controller
 
     public function createCustomer(Request $request): JsonResponse
     {
-        $this->customerService->createCustomer($request->all());
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string|max:100',
+                'email' => 'required|string|max:100',
+                'cpf' => 'required_if:customer_type_id, 1|exclude_if:customer_type_id, 2|string|size:11',
+                'cpnj' => 'required_if:customer_type_id, 2|exclude_if:customer_type_id, 1|string|size:14',
+                'password' => 'required|string',
+                'customer_type_id' => 'required|integer|between:1, 2',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $this->customerService->createCustomer($validator->validated());
 
         return response()->json('Customer created successfully!', 201);
     }	

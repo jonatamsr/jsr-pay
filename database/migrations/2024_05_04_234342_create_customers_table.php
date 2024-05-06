@@ -15,17 +15,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('customer_type_id');
             $table->string('name', 100);
-            $table->string('cpf_cnpj', 14);
+            $table->string('cpf', 11);
+            $table->string('cnpj', 14);
             $table->string('email', 100);
             $table->string('password', 64);
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('customer_type_id')->references('id')->on('customer_types');
-            $table->unique([
-                'cpf_cnpj',
-                'email',
-            ]);
+            $table->unique('cpf');
+            $table->unique('cnpj');
+            $table->unique('email');
         });
     }
 
