@@ -11,7 +11,7 @@ use Illuminate\Database\Query\Builder;
  * 
  * @property int $id
  * @property int $customer_id
- * @property double $amount
+ * @property double $balance
  * 
  * @method static Builder query()
  * 
@@ -19,6 +19,8 @@ use Illuminate\Database\Query\Builder;
  */
 class Wallet extends Model
 {
+    use HasFactory;
+
     public $timestamps = false;
 
     protected $table = 'wallets';

@@ -6,7 +6,6 @@ use App\Domain\Entities\Customer;
 use App\Domain\Entities\Wallet;
 use App\Exceptions\ValidationException;
 use App\Models\CustomerType;
-use Illuminate\Support\Facades\Log;
 
 class ValidateTransferService
 {
@@ -29,9 +28,8 @@ class ValidateTransferService
         }
     }
 
-    public function validateAmount(float $amount): void
+    public function validateAmount(float|string $amount): void
     {
-        Log::info('', ['amount'=> $amount]);
         if (!preg_match('/^\d{1,8}(\.\d{0,2})?$/', $amount)) {
             throw new ValidationException('The amount field must be in decimal format (10,2)');
         }

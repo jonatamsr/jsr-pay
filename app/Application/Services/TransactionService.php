@@ -4,7 +4,6 @@ namespace App\Application\Services;
 use App\Domain\Events\TransferCarriedOut;
 use App\Domain\Services\ValidateTransferService;
 use App\Dtos\TransferDto;
-use App\Exceptions\ValidationException;
 use App\Models\TransactionStatus;
 use App\Ports\Inbound\TransactionServicePort;
 use App\Ports\Outbound\AuthorizationServicePort;
