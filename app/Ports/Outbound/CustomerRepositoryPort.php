@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Ports\Outbound;
+
 use App\Domain\Entities\Customer;
+use App\Domain\Entities\Wallet;
 
 interface CustomerRepositoryPort
 {
@@ -9,4 +11,6 @@ interface CustomerRepositoryPort
     public function getCustomerByEmail(string $email): ?Customer;
     public function getCustomerByCpf(string $email): ?Customer;
     public function getCustomerByCnpj(string $email): ?Customer;
+    public function getCustomerById(int $customerId): ?Customer;
+    public function getCustomerWallet(int $customerId): Wallet;
 }

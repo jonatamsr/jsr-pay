@@ -11,16 +11,16 @@ use Illuminate\Events\Dispatcher;
 class CustomerService implements CustomerServicePort
 {
     private $customerRepository;
-    private $customerCreationValidator;
+    private $customerValidator;
     private $eventDispatcher;
 
     public function __construct(
         CustomerRepositoryPort $customerRepository,
-        ValidateCustomerCreationService $customerCreationValidator,
+        ValidateCustomerCreationService $customerValidator,
         Dispatcher $eventDispatcher
     ) {
         $this->customerRepository = $customerRepository;
-        $this->customerCreationValidator = $customerCreationValidator;
+        $this->customerValidator = $customerValidator;
         $this->eventDispatcher = $eventDispatcher;
     }
 
@@ -28,7 +28,7 @@ class CustomerService implements CustomerServicePort
     {
         $customer = new Customer($customerData);
         
-        $this->customerCreationValidator->validate($customer);
+        $this->customerValidator->validate($customer);
 
         $passwordHash = hash('sha256', $customerData['password']);
         $customer->setPassword($passwordHash);

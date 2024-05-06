@@ -6,6 +6,7 @@ use App\Ports\Inbound\CustomerServicePort;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class CustomerController extends Controller
 {
@@ -19,6 +20,6 @@ class CustomerController extends Controller
     {
         $this->customerService->createCustomer($request->all());
 
-        return response()->json('Customer created successfully!', 201);
-    }	
+        return response()->json('Customer created successfully!', Response::HTTP_CREATED);
+    }
 }

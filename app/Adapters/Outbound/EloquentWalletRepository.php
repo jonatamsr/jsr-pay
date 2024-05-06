@@ -10,11 +10,21 @@ class EloquentWalletRepository implements WalletRepositoryPort
 
     public function createWallet(int $customerId): int
     {
-        $createdWallet = WalletEloquentModel::create([
-            'customer_id' => $customerId,
-            'balance' => self::INITIAL_BALANCE,
-        ]);
+        $createdWallet = WalletEloquentModel::query()
+            ->create([
+                'customer_id' => $customerId,
+                'balance' => self::INITIAL_BALANCE,
+            ]);
 
         return $createdWallet->id;
+    }
+
+    public function updateBalance(int $customerId, float $balance): void
+    {
+        WalletEloquentModel::query()
+            ->where('customer_id', $customerId)
+            ->update([
+                'balance' => $balance,
+            ]);
     }
 }

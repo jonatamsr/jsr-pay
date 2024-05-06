@@ -17,6 +17,10 @@ use Illuminate\Database\Query\Builder;
  */
 class TransactionStatus extends Model
 {
+    public const STATUS_ID_PROCESSING = 1;
+    public const STATUS_ID_SUCCESS = 2;
+    public const STATUS_ID_ERROR = 3;
+
     public $timestamps = false;
 
     protected $table = 'transaction_statuses';
