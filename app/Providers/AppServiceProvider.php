@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        foreach(config('hexagonal') as $interface => $implementation) {
+            $this->app->bind($interface, $implementation);
+        }
     }
 
     /**
