@@ -30,7 +30,7 @@ abstract class Entity
         $response = [];
 
         foreach (self::properties() as $propertyClass) {
-            $response[$propertyClass] = $this->{$propertyClass};
+            $response[$propertyClass] = $this->{$propertyClass} ?? null;
         }
 
         return $response;

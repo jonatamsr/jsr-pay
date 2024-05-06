@@ -5,9 +5,7 @@ namespace App\Adapters\Inbound\Controllers;
 use App\Ports\Inbound\CustomerServicePort;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {

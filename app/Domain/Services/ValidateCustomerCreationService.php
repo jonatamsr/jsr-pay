@@ -25,7 +25,7 @@ class ValidateCustomerCreationService
         $this->validatePassword($customer);
     }
 
-    private function validateCustomerTypeId(Customer $customer): void
+    protected function validateCustomerTypeId(Customer $customer): void
     {
         $customerTypeId = $customer->getCustomerTypeId();
         
@@ -38,7 +38,7 @@ class ValidateCustomerCreationService
         }
     }
 
-    private function validateName(Customer $customer): void
+    protected function validateName(Customer $customer): void
     {
         $name = $customer->getName();
         
@@ -55,7 +55,7 @@ class ValidateCustomerCreationService
         }
     }
 
-    private function validateEmail(Customer $customer): void
+    protected function validateEmail(Customer $customer): void
     {
         $email = $customer->getEmail();
         if (empty($email)) {
@@ -76,9 +76,9 @@ class ValidateCustomerCreationService
         }
     }
 
-    private function validateCpf(Customer $customer): void
+    protected function validateCpf(Customer $customer): void
     {
-        $customerType = $customer->getType();
+        $customerType = $customer->getCustomerTypeId();
         $cpf = $customer->getCpf();
         if ($customerType !== CustomerType::TYPE_ID_COMMON && !empty($cpf)) {
             throw new ValidationException('A retailer customer must not have cpf informed');
@@ -102,9 +102,9 @@ class ValidateCustomerCreationService
         }
     }
 
-    private function validateCnpj(Customer $customer): void
+    protected function validateCnpj(Customer $customer): void
     {
-        $customerType = $customer->getType();
+        $customerType = $customer->getCustomerTypeId();
         $cnpj = $customer->getCnpj();
         if ($customerType !== CustomerType::TYPE_ID_RETAILER && !empty($cnpj)) {
             throw new ValidationException('A common customer must not have cnpj informed');
@@ -128,7 +128,7 @@ class ValidateCustomerCreationService
         }
     }
 
-    private function validatePassword(Customer $customer): void
+    protected function validatePassword(Customer $customer): void
     {
         $password = $customer->getPassword();
 

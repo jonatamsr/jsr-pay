@@ -29,18 +29,20 @@ Start the containers
 Install the dependencies
 
 ```bash
-  docker-compose exec composer install
+  docker-compose exec api composer install
 ```
 
 Migrate the database with seeds
 
 ```bash
-  docker-compose exec php artisan migrate --seed
+  docker-compose exec api php artisan migrate --seed
 ```
 
 ## Run Tests
 
-Developing...
+```bash
+  docker-compose exec api php vendor/bin/phpunit
+```
 
 ## Contributing
 
