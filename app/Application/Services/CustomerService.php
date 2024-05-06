@@ -27,10 +27,11 @@ class CustomerService implements CustomerServicePort
     public function createCustomer(array $customerData): void
     {
         $customer = new Customer($customerData);
+        
+        $this->customerCreationValidator->validate($customer);
+
         $passwordHash = hash('sha256', $customerData['password']);
         $customer->setPassword($passwordHash);
-
-        $this->customerCreationValidator->validate($customer);
 
         $customerId = $this->customerRepository->createCustomer($customer);
 
