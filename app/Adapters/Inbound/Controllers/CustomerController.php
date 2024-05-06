@@ -24,8 +24,8 @@ class CustomerController extends Controller
             [
                 'name' => 'required|string|max:100',
                 'email' => 'required|string|max:100',
-                'cpf' => 'required_if:customer_type_id, 1|exclude_if:customer_type_id, 2|string|size:11',
-                'cpnj' => 'required_if:customer_type_id, 2|exclude_if:customer_type_id, 1|string|size:14',
+                'cpf' => 'required_if:customer_type_id, 1|exclude_if:customer_type_id, 2',
+                'cnpj' => 'required_if:customer_type_id, 2|exclude_if:customer_type_id, 1',
                 'password' => 'required|string',
                 'customer_type_id' => 'required|integer|between:1, 2',
             ]

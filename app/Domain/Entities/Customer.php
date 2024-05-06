@@ -21,4 +21,24 @@ class Customer extends Entity
     {
         $this->password = $password;
     }
+
+    public function getCpf(): ?string
+    {
+        return $this->cpf;
+    }
+
+    public function getCnpj(): ?string
+    {
+        return $this->cnpj;
+    }
+
+    public function getType(): int
+    {
+        return $this->customer_type_id;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 }
