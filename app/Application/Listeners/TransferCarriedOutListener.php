@@ -15,7 +15,6 @@ class TransferCarriedOutListener
 
     public function handle(TransferCarriedOut $event)
     {
-        $this->notificationService->notifyByEmail($event->payeeCustomerId);
-        $this->notificationService->notifyBySms($event->payeeCustomerId);
+        $this->notificationService->notify($event->payeeCustomerId);
     }
 }

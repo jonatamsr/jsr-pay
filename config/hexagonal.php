@@ -1,5 +1,6 @@
 <?php
 
+use App\Adapters\Outbound\CompositeNotificationService;
 use App\Adapters\Outbound\EloquentCustomerRepository;
 use App\Adapters\Outbound\EloquentTransactionRepository;
 use App\Adapters\Outbound\EloquentWalletRepository;
@@ -31,5 +32,5 @@ return [
     AuthorizationServicePort::class => SomeAppAuthorizationService::class,
 
     // Notification
-    NotificationServicePort::class => SomeAppNotificationService::class,
+    NotificationServicePort::class => CompositeNotificationService::class,
 ];

@@ -5,9 +5,9 @@ namespace Tests\Unit\Exceptions;
 use App\Exceptions\ValidationException;
 use Tests\TestCase;
 
-class ValidationExceptionUnitTest extends TestCase
+class AuthorizationExceptionUnitTest extends TestCase
 {
-    public function testValidationExceptionMustRenderExceptionCorrectly(): void
+    public function testAuthorizationExceptionMustRenderExceptionCorrectly(): void
     {
         $fakeValidationException = new ValidationException('fake-message');
 
