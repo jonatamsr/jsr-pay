@@ -1,10 +1,19 @@
 # Jsr Pay
 
-A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and Docker.
+A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and Docker, aplying Hexagonal Architecture.
 
 ## Requirements
 - docker
 - docker-compose
+
+## Data Model
+![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr_pay_data_model_erd.png)
+
+## Architecture
+![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr-pay-hexagon-diagram.png)
+
+## Test Coverage
+![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr-pay-test-coverage.png)
 
 ## Setup
 
