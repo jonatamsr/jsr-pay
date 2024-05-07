@@ -41,6 +41,12 @@ Install the dependencies
   docker-compose exec api composer install
 ```
 
+Copy .env file
+
+```bash
+  cp .env.test .env
+```
+
 Migrate the database with seeds
 
 ```bash
