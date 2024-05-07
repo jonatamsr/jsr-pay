@@ -12,8 +12,17 @@ jobs:
           ports:
             - 5432:5432
           env:
+            POSTGRES_HOST: localhost
+            POSTGRES_PORT: 5432
+            POSTGRES_USER: test
             POSTGRES_PASSWORD: test
+            POSTGRES_DB: postgres
           options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+
+        container:
+          image: jsr-pay-api:latest  # Replace with your project's Docker image
+          volumes:
+            - .:/app
 
     steps:
       # Install PHP and PostgreSQL extensions
@@ -23,10 +32,10 @@ jobs:
           php-version: '8.2'
           extensions: pdo_pgsql
 
-      # Install Composer dependencies
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-progress
+      # Install dependencies
+      - name: Install dependencies
+        run: docker-compose run --rm app composer install --prefer-dist --no-progress
 
       # Run PHPUnit tests
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --configuration phpunit.xml
+        run: docker-compose run --rm app vendor/bin/phpunit --configuration phpunit.xml
