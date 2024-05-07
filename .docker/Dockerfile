@@ -18,6 +18,13 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libpq-dev
 
+# Download and install Xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Set Xdebug mode for code coverage
+ENV XDEBUG_MODE=coverage
+
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 

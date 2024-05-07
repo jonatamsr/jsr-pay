@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adapters\Outbound;
+
 use App\Exceptions\AuthorizationException;
 use App\Ports\Outbound\AuthorizationServicePort;
 use Illuminate\Support\Facades\Http;

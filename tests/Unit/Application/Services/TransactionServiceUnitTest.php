@@ -220,4 +220,32 @@ class TransactionServiceUnitTest extends TestCase
         $service = app(TransactionService::class);
         $service->transfer($fakeTransferData);
     }
+
+    public function testTransferMustUpdateTransactionWithErrorStatusWhenAnExceptionIsThrown2(): void
+    {
+        $fakePayerCustomerId = 1;
+        $fakePayeeCustomerId = 2;
+        $fakeAmount = 10.00;
+
+        $fakeTransferData = [
+            'payer' => $fakePayerCustomerId,
+            'payee' => $fakePayeeCustomerId,
+            'value' => $fakeAmount,
+        ];
+
+        $this->transferValidatorMock->expects($this->once())
+            ->method('validateAmount')
+            ->with($fakeAmount);
+
+        $this->customerRepositoryPortMock->expects($this->once())
+            ->method('getCustomerById')
+            ->willThrowException(new Exception('fake-exception'));
+            
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('fake-exception');
+
+        /** @var TransactionService */
+        $service = app(TransactionService::class);
+        $service->transfer($fakeTransferData);
+    }
 }
