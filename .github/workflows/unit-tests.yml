@@ -9,10 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Navigating to docker folder...
+        run: cd .docker
+
       - name: Build and run Rocker container...
-        run: 
-          cd .docker .
-          docker-compose up -d
+        run: docker-compose up -d
 
       - name: Installing composer dependencies...
         run: docker-compose exec api composer install
