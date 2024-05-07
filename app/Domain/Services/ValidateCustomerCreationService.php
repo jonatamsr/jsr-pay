@@ -12,11 +12,13 @@ class ValidateCustomerCreationService
 {
     private $customerRepository;
 
-    public function __construct(CustomerRepositoryPort $customerRepository) {
+    public function __construct(CustomerRepositoryPort $customerRepository)
+    {
         $this->customerRepository = $customerRepository;
     }
 
-    public function validate(Customer $customer) {
+    public function validate(Customer $customer)
+    {
         $this->validateCustomerTypeId($customer);
         $this->validateName($customer);
         $this->validateEmail($customer);
@@ -28,7 +30,7 @@ class ValidateCustomerCreationService
     protected function validateCustomerTypeId(Customer $customer): void
     {
         $customerTypeId = $customer->getCustomerTypeId();
-        
+
         if (empty($customerTypeId)) {
             throw new ValidationException('The customer_type_id field is required');
         }
@@ -41,7 +43,7 @@ class ValidateCustomerCreationService
     protected function validateName(Customer $customer): void
     {
         $name = $customer->getName();
-        
+
         if (empty($name)) {
             throw new ValidationException('The name field is required');
         }

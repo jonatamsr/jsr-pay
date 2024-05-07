@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adapters\Outbound;
+
 use App\Ports\Outbound\NotificationServicePort;
 
 class CompositeNotificationService implements NotificationServicePort
@@ -8,7 +9,8 @@ class CompositeNotificationService implements NotificationServicePort
     private $smsService;
     private $emailService;
 
-    public function __construct(SMSNotificationService $smsService, EmailNotificationService $emailService) {
+    public function __construct(SMSNotificationService $smsService, EmailNotificationService $emailService)
+    {
         $this->smsService = $smsService;
         $this->emailService = $emailService;
     }

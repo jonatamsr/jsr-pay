@@ -8,7 +8,8 @@ class TransferDto
     public $payeeId;
     public $amount;
 
-    public function __construct(int $payerId, int $payeeId, float $amount) {
+    public function __construct(int $payerId, int $payeeId, float $amount)
+    {
         $this->payerId = $payerId;
         $this->payeeId = $payeeId;
         $this->amount = $amount;

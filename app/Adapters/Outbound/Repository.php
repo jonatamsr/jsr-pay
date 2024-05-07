@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class Repository
 {
-    protected function buildEntity(?Model $model, string $entityClassName) {
+    protected function buildEntity(?Model $model, string $entityClassName)
+    {
         if (is_null($model)) {
             return null;
         }

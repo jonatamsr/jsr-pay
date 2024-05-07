@@ -6,7 +6,8 @@ class CustomerCreated
 {
     public $customerId;
 
-    public function __construct(int $customerId) {
+    public function __construct(int $customerId)
+    {
         $this->customerId = $customerId;
     }
 }

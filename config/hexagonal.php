@@ -5,7 +5,6 @@ use App\Adapters\Outbound\EloquentCustomerRepository;
 use App\Adapters\Outbound\EloquentTransactionRepository;
 use App\Adapters\Outbound\EloquentWalletRepository;
 use App\Adapters\Outbound\SomeAppAuthorizationService;
-use App\Adapters\Outbound\SomeAppNotificationService;
 use App\Application\Services\CustomerService;
 use App\Application\Services\TransactionService;
 use App\Ports\Inbound\CustomerServicePort;

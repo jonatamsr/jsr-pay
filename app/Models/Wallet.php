@@ -8,13 +8,13 @@ use Illuminate\Database\Query\Builder;
 
 /**
  * Class Wallet
- * 
+ *
  * @property int $id
  * @property int $customer_id
  * @property double $balance
- * 
+ *
  * @method static Builder query()
- * 
+ *
  * @package App\Models
  */
 class Wallet extends Model

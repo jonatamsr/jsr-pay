@@ -4,7 +4,8 @@ namespace App\Domain\Entities;
 
 abstract class Entity
 {
-    public function __construct(array $data) {
+    public function __construct(array $data)
+    {
         $this->attachValues($data);
     }
 

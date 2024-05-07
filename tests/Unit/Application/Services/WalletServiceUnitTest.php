@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit\Application\Services;
+
 use App\Application\Services\WalletService;
 use App\Ports\Outbound\WalletRepositoryPort;
 use Tests\TestCase;

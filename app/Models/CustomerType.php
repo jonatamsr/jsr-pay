@@ -7,12 +7,12 @@ use Illuminate\Database\Query\Builder;
 
 /**
  * Class CustomerType
- * 
+ *
  * @property int $id
  * @property string $type
- * 
+ *
  * @method static Builder query()
- * 
+ *
  * @package App\Models
  */
 class CustomerType extends Model

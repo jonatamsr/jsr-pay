@@ -40,7 +40,7 @@ class TransferFunctionalTest extends TestCase
             'value' => 30,
         ];
 
-        $request = Request::create('/customer','POST', $requestData);
+        $request = Request::create('/customer', 'POST', $requestData);
 
         $this->transactionController->transfer($request);
 

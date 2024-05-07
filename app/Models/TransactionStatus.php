@@ -7,12 +7,12 @@ use Illuminate\Database\Query\Builder;
 
 /**
  * Class TransactionStatus
- * 
+ *
  * @property int $id
  * @property string $status
- * 
+ *
  * @method static Builder query()
- * 
+ *
  * @package App\Models
  */
 class TransactionStatus extends Model

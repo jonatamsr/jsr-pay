@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adapters\Outbound;
+
 use App\Models\Wallet as WalletEloquentModel;
 use App\Ports\Outbound\WalletRepositoryPort;
 

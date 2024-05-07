@@ -17,7 +17,7 @@ class Wallet extends Entity
     {
         $this->id = $id;
     }
-    
+
     public function getCustomerId(): ?string
     {
         return $this->customer_id ?? null;

@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit\Domain\Entities;
+
 use App\Domain\Entities\Entity;
 use Tests\TestCase;
 
@@ -17,7 +18,7 @@ class EntityUnitTest extends TestCase
             'fakeProperty2' => 'some-value2',
         ];
 
-        $this->mockImplementedClass = new class($constructArgs) extends Entity {
+        $this->mockImplementedClass = new class ($constructArgs) extends Entity {
             protected $fakeProperty;
             protected $fakeProperty2;
 

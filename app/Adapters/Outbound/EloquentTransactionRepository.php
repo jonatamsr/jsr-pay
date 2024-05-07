@@ -25,6 +25,6 @@ class EloquentTransactionRepository extends Repository implements TransactionRep
     public function updateTransactionStatus(int $transactionId, int $statusId): void
     {
         TransactionEloquentModel::query()
-            ->where('id', $transactionId)->update(['transaction_status_id'=> $statusId]);
+            ->where('id', $transactionId)->update(['transaction_status_id' => $statusId]);
     }
 }

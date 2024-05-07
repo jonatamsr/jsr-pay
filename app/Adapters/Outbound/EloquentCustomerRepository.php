@@ -8,12 +8,12 @@ use App\Models\Customer as CustomerEloquentModel;
 use App\Models\Wallet as WalletEloquentModel;
 use App\Ports\Outbound\CustomerRepositoryPort;
 
-class EloquentCustomerRepository extends Repository implements CustomerRepositoryPort 
+class EloquentCustomerRepository extends Repository implements CustomerRepositoryPort
 {
     public function createCustomer(Customer $customer): int
     {
         $customerData = $customer->toArray();
-        unset($customerData["id"]);
+        unset($customerData['id']);
         $customerModel = CustomerEloquentModel::query()->create($customerData);
 
         return $customerModel->id;

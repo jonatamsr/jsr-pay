@@ -388,7 +388,7 @@ class ValidateCustomerCreationServiceUnitTest extends TestCase
 
         $existentCustomer = new Customer([
             'customer_type_id' => CustomerType::TYPE_ID_COMMON,
-            'cpf'=> '12345678901',
+            'cpf' => '12345678901',
         ]);
 
         $this->customerRepositoryMock->expects($this->once())
@@ -530,7 +530,7 @@ class ValidateCustomerCreationServiceUnitTest extends TestCase
 
         $existentCustomer = new Customer([
             'customer_type_id' => CustomerType::TYPE_ID_RETAILER,
-            'cnpj'=> '12345678901234',
+            'cnpj' => '12345678901234',
         ]);
 
         $this->customerRepositoryMock->expects($this->once())

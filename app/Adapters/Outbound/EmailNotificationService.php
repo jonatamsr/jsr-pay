@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Adapters\Outbound;
+
 use App\Ports\Outbound\NotificationServicePort;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;

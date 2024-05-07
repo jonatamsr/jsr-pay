@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit\Application\Services;
+
 use App\Application\Services\CustomerService;
 use App\Domain\Entities\Customer;
 use App\Domain\Events\CustomerCreated;

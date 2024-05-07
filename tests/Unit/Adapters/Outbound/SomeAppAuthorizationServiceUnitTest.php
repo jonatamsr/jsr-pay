@@ -13,7 +13,7 @@ class SomeAppAuthorizationServiceUnitTest extends TestCase
     public function testSomeAppAuthorizationServiceMustThrowAuthorizationServiceWhenAuthenticationFails(): void
     {
         Http::fake([
-            'auth/auth-mock'=> Http::response(['message' => 'Não Autorizado!', Response::HTTP_UNAUTHORIZED])
+            'auth/auth-mock' => Http::response(['message' => 'Não Autorizado!', Response::HTTP_UNAUTHORIZED])
         ]);
 
         /** @var SomeAppAuthorizationService $test */

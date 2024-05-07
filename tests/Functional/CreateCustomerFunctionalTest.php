@@ -36,7 +36,7 @@ class CreateCustomerFunctionalTest extends TestCase
             'cnpj' => null
         ];
 
-        $request = Request::create('/customer','POST', $requestData);
+        $request = Request::create('/customer', 'POST', $requestData);
 
         $response = $this->customerController->createCustomer($request);
 
@@ -71,7 +71,7 @@ class CreateCustomerFunctionalTest extends TestCase
             'cnpj' => '12345678901234'
         ];
 
-        $request = Request::create('/customer','POST', $requestData);
+        $request = Request::create('/customer', 'POST', $requestData);
 
         $response = $this->customerController->createCustomer($request);
 

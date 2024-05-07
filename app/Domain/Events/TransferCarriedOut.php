@@ -6,7 +6,8 @@ class TransferCarriedOut
 {
     public $payeeCustomerId;
 
-    public function __construct(int $payeeCustomerId) {
+    public function __construct(int $payeeCustomerId)
+    {
         $this->payeeCustomerId = $payeeCustomerId;
     }
 }

@@ -21,7 +21,7 @@ class Customer extends Entity
     {
         $this->id = $id;
     }
-    
+
     public function getName(): ?string
     {
         return $this->name ?? null;

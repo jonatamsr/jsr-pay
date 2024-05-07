@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Application\Services;
+
 use App\Domain\Entities\Customer;
 use App\Domain\Events\CustomerCreated;
 use App\Domain\Services\ValidateCustomerCreationService;
@@ -27,7 +28,7 @@ class CustomerService implements CustomerServicePort
     public function createCustomer(array $customerData): void
     {
         $customer = new Customer($customerData);
-        
+
         $this->customerValidator->validate($customer);
 
         $passwordHash = hash('sha256', $customerData['password']);

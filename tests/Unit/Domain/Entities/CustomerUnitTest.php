@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit\Domain\Entities;
+
 use App\Domain\Entities\Customer;
 use Tests\TestCase;
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 
 /**
  * Class Customer
- * 
+ *
  * @property int $id
  * @property int $customer_type_id
  * @property string $name
@@ -21,9 +21,9 @@ use Illuminate\Support\Carbon;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon|null $deleted_at
- * 
+ *
  * @method static Builder query()
- * 
+ *
  * @package App\Models
  */
 class Customer extends Model

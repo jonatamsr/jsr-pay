@@ -11,7 +11,8 @@ class TransactionController
 {
     private $transactionService;
 
-    public function __construct(TransactionServicePort $transactionService) {
+    public function __construct(TransactionServicePort $transactionService)
+    {
         $this->transactionService = $transactionService;
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit\Application\Services;
+
 use App\Application\Services\TransactionService;
 use App\Domain\Entities\Customer;
 use App\Domain\Entities\Wallet;
@@ -87,7 +88,7 @@ class TransactionServiceUnitTest extends TestCase
         $this->customerRepositoryPortMock->expects($this->exactly(2))
             ->method('getCustomerById')
             ->with(self::callback(self::consecutiveCalls($fakePayerCustomerId, $fakePayeeCustomerId)))
-            ->willReturnOnConsecutiveCalls($fakePayerCustomer,$fakePayeeCustomer);
+            ->willReturnOnConsecutiveCalls($fakePayerCustomer, $fakePayeeCustomer);
 
         $this->transferValidatorMock->expects($this->once())
             ->method('validatePayer')
@@ -175,7 +176,7 @@ class TransactionServiceUnitTest extends TestCase
         $this->customerRepositoryPortMock->expects($this->exactly(2))
             ->method('getCustomerById')
             ->with(self::callback(self::consecutiveCalls($fakePayerCustomerId, $fakePayeeCustomerId)))
-            ->willReturnOnConsecutiveCalls($fakePayerCustomer,$fakePayeeCustomer);
+            ->willReturnOnConsecutiveCalls($fakePayerCustomer, $fakePayeeCustomer);
 
         $this->transferValidatorMock->expects($this->once())
             ->method('validatePayer')
@@ -240,7 +241,7 @@ class TransactionServiceUnitTest extends TestCase
         $this->customerRepositoryPortMock->expects($this->once())
             ->method('getCustomerById')
             ->willThrowException(new Exception('fake-exception'));
-            
+
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('fake-exception');
 

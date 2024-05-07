@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Application\Services;
+
 use App\Domain\Events\TransferCarriedOut;
 use App\Domain\Services\ValidateTransferService;
 use App\Dtos\TransferDto;
@@ -48,15 +49,15 @@ class TransactionService implements TransactionServicePort
                 Arr::get($transferData, 'payee'),
                 Arr::get($transferData, 'value')
             );
-    
+
             $this->transferValidator->validateAmount($trasferDto->amount);
-    
+
             $payer = $this->customerRepository->getCustomerById($trasferDto->payerId);
             $this->transferValidator->validatePayer($payer);
-    
+
             $payee = $this->customerRepository->getCustomerById($trasferDto->payeeId);
             $this->transferValidator->validatePayee($payee);
-    
+
             $payerWallet = $this->customerRepository->getCustomerWallet($payer->getId());
             $this->transferValidator->validatePayerWallet($trasferDto->amount, $payerWallet);
 
@@ -65,13 +66,13 @@ class TransactionService implements TransactionServicePort
             DB::beginTransaction();
 
             $newPayerBalance = $payerWallet->getBalance() - $trasferDto->amount;
-    
+
             $payeeWallet = $this->customerRepository->getCustomerWallet($payee->getId());
-    
+
             $newPayeeBalance = $payeeWallet->getBalance() + $trasferDto->amount;
-    
+
             $this->authorizationService->authorize();
-    
+
             $this->walletRepository->updateBalance($payer->getId(), $newPayerBalance);
             $this->walletRepository->updateBalance($payee->getId(), $newPayeeBalance);
 

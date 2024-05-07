@@ -9,7 +9,8 @@ class CustomerCreatedListener
 {
     private $walletService;
 
-    public function __construct(WalletService $walletService) {
+    public function __construct(WalletService $walletService)
+    {
         $this->walletService = $walletService;
     }
 

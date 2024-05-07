@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Application\Services;
+
 use App\Ports\Outbound\WalletRepositoryPort;
 
 class WalletService
 {
     private $walletRepository;
 
-    public function __construct(WalletRepositoryPort $walletRepository) {
+    public function __construct(WalletRepositoryPort $walletRepository)
+    {
         $this->walletRepository = $walletRepository;
     }
 

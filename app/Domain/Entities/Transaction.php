@@ -19,7 +19,7 @@ class Transaction extends Entity
     {
         $this->id = $id;
     }
-    
+
     public function getPayerId(): ?string
     {
         return $this->payer_id ?? null;

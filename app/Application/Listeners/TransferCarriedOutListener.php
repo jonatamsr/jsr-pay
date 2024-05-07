@@ -9,7 +9,8 @@ class TransferCarriedOutListener
 {
     private $notificationService;
 
-    public function __construct(NotificationServicePort $notificationService) {
+    public function __construct(NotificationServicePort $notificationService)
+    {
         $this->notificationService = $notificationService;
     }
 
