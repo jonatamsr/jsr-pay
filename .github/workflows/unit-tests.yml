@@ -6,23 +6,25 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
 
+    services:
+        postgres:
+          image: postgres:latest
+          ports:
+            - 5432:5432
+          options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
+
     steps:
-      - uses: actions/checkout@v3
+      # Install PHP and PostgreSQL extensions
+      - name: Setup PHP and PostgreSQL
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_pgsql
 
-      - name: Navigating to docker folder...
-        run: cd .docker
+      # Install Composer dependencies
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Build and run Rocker container...
-        run: docker-compose up -d
-
-      - name: Installing composer dependencies...
-        run: docker-compose exec api composer install
-
-      - name: Copying test env...
-        run: cp .env.test .env
-
-      - name: Migrating tables and seeding...
-        run: docker-compose exec api php artisan migrate --seed
-
-      - name: Run PHPUnit tests...
-        run: docker-compose exec api vendor/bin/phpunit
+      # Run PHPUnit tests
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --configuration phpunit.xml
