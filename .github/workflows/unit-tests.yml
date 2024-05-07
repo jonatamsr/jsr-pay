@@ -11,7 +11,7 @@ jobs:
 
       - name: Build and run Rocker container...
         run: 
-          cd .docker
+          cd .docker .
           docker-compose up -d
 
       - name: Installing composer dependencies...
