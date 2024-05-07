@@ -9,7 +9,7 @@ use App\Ports\Outbound\TransactionRepositoryPort;
 
 class EloquentTransactionRepository extends Repository implements TransactionRepositoryPort
 {
-    public function createTransaction(TransferDto $transferDto): int
+    public function createTransaction(TransferDto $transferDto): string
     {
         $transaction = TransactionEloquentModel::query()
             ->create([
@@ -22,7 +22,7 @@ class EloquentTransactionRepository extends Repository implements TransactionRep
         return $transaction->id;
     }
 
-    public function updateTransactionStatus(int $transactionId, int $statusId): void
+    public function updateTransactionStatus(string $transactionId, int $statusId): void
     {
         TransactionEloquentModel::query()
             ->where('id', $transactionId)->update(['transaction_status_id' => $statusId]);

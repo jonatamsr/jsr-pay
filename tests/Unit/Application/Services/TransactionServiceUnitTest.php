@@ -14,7 +14,9 @@ use App\Ports\Outbound\CustomerRepositoryPort;
 use App\Ports\Outbound\TransactionRepositoryPort;
 use App\Ports\Outbound\WalletRepositoryPort;
 use Exception;
+use Faker\Core\Uuid;
 use Illuminate\Events\Dispatcher;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class TransactionServiceUnitTest extends TestCase
@@ -107,12 +109,12 @@ class TransactionServiceUnitTest extends TestCase
             ->method('validatePayerWallet')
             ->with($fakeAmount, $fakePayerWallet);
 
-        $fakeTransactionId = 500;
+        $fakeTransactionId = Str::uuid();
         $expectedTransferDto = new TransferDto($fakePayerCustomerId, $fakePayeeCustomerId, $fakeAmount);
         $this->transactionRepositoryPortMock->expects($this->once())
             ->method('createTransaction')
             ->with($expectedTransferDto)
-            ->willReturn($fakeTransactionId);
+            ->willReturn($fakeTransactionId->__toString());
 
         $this->authorizationServicePortMock->expects($this->once())
             ->method('authorize');
@@ -195,12 +197,12 @@ class TransactionServiceUnitTest extends TestCase
             ->method('validatePayerWallet')
             ->with($fakeAmount, $fakePayerWallet);
 
-        $fakeTransactionId = 500;
+        $fakeTransactionId = Str::uuid();
         $expectedTransferDto = new TransferDto($fakePayerCustomerId, $fakePayeeCustomerId, $fakeAmount);
         $this->transactionRepositoryPortMock->expects($this->once())
             ->method('createTransaction')
             ->with($expectedTransferDto)
-            ->willReturn($fakeTransactionId);
+            ->willReturn($fakeTransactionId->__toString());
 
         $this->authorizationServicePortMock->expects($this->once())
             ->method('authorize')
