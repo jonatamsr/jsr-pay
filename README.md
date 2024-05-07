@@ -7,13 +7,13 @@ A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and
 - docker-compose
 
 ## Data Model
-![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr_pay_data_model_erd.png)
+![](resources/jsr_pay_data_model_erd.png)
 
 ## Architecture
-![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr-pay-hexagon-diagram.png)
+![](resources/jsr-pay-hexagon-diagram.png)
 
 ## Test Coverage
-![](https://github.com/jonatamsr/jsr-pay/tree/main/resources/jsr-pay-test-coverage.png)
+![](resources/jsr-pay-test-coverage.png)
 
 ## Setup
 
