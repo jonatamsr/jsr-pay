@@ -9,18 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Install PHP and PostgreSQL extensions
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: pdo_pgsql
 
-
-      # Install Composer dependencies
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      # Run PHPUnit tests
+      - name: Copying test env
+        run: cp .env.test .env
+
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml
