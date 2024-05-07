@@ -1,6 +1,6 @@
 # Jsr Pay
 
-A project designed for monetary transfers with Laravel 11, PostgreSQL, NGinx and Docker, aplying Hexagonal Architecture.
+A project designed for monetary transfers with PHP8.2-FPM, Laravel 11, PostgreSQL, NGinx and Docker, aplying Hexagonal Architecture.
 
 ## Requirements
 - docker
