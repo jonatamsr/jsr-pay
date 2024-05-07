@@ -4,9 +4,7 @@ namespace App\Domain\Events;
 
 class CustomerCreated
 {
-    public $customerId;
-
-    public function __construct(int $customerId)
+    public function __construct(public int $customerId)
     {
         $this->customerId = $customerId;
     }

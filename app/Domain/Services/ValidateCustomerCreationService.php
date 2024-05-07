@@ -10,9 +10,7 @@ use Illuminate\Support\Str;
 
 class ValidateCustomerCreationService
 {
-    private $customerRepository;
-
-    public function __construct(CustomerRepositoryPort $customerRepository)
+    public function __construct(private CustomerRepositoryPort $customerRepository)
     {
         $this->customerRepository = $customerRepository;
     }

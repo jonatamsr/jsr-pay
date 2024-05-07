@@ -6,11 +6,10 @@ use App\Ports\Outbound\NotificationServicePort;
 
 class CompositeNotificationService implements NotificationServicePort
 {
-    private $smsService;
-    private $emailService;
-
-    public function __construct(SMSNotificationService $smsService, EmailNotificationService $emailService)
-    {
+    public function __construct(
+        private SMSNotificationService $smsService,
+        private EmailNotificationService $emailService
+    ) {
         $this->smsService = $smsService;
         $this->emailService = $emailService;
     }

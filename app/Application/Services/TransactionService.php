@@ -18,26 +18,19 @@ use Throwable;
 
 class TransactionService implements TransactionServicePort
 {
-    private $customerRepository;
-    private $walletRepository;
-    private $transferValidator;
-    private $authorizationService;
-    private $transactionRepository;
-    private $dispatcher;
-
     public function __construct(
-        CustomerRepositoryPort $customerRepository,
-        WalletRepositoryPort $walletRepository,
-        ValidateTransferService $transferValidator,
-        AuthorizationServicePort $authorizationService,
-        TransactionRepositoryPort $transactionRepository,
-        Dispatcher $dispatcher
+        private CustomerRepositoryPort $customerRepository,
+        private WalletRepositoryPort $walletRepository,
+        private AuthorizationServicePort $authorizationService,
+        private TransactionRepositoryPort $transactionRepository,
+        private ValidateTransferService $transferValidator,
+        private Dispatcher $dispatcher
     ) {
         $this->customerRepository = $customerRepository;
         $this->walletRepository = $walletRepository;
-        $this->transferValidator = $transferValidator;
         $this->authorizationService = $authorizationService;
         $this->transactionRepository = $transactionRepository;
+        $this->transferValidator = $transferValidator;
         $this->dispatcher = $dispatcher;
     }
 

@@ -4,9 +4,7 @@ namespace App\Domain\Events;
 
 class TransferCarriedOut
 {
-    public $payeeCustomerId;
-
-    public function __construct(int $payeeCustomerId)
+    public function __construct(public int $payeeCustomerId)
     {
         $this->payeeCustomerId = $payeeCustomerId;
     }

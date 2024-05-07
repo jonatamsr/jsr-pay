@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TransactionController
 {
-    private $transactionService;
-
-    public function __construct(TransactionServicePort $transactionService)
+    public function __construct(private TransactionServicePort $transactionService)
     {
         $this->transactionService = $transactionService;
     }

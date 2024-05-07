@@ -10,9 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CustomerController extends Controller
 {
-    private $customerService;
-
-    public function __construct(CustomerServicePort $customerService)
+    public function __construct(private CustomerServicePort $customerService)
     {
         $this->customerService = $customerService;
     }

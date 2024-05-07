@@ -6,9 +6,7 @@ use App\Ports\Outbound\WalletRepositoryPort;
 
 class WalletService
 {
-    private $walletRepository;
-
-    public function __construct(WalletRepositoryPort $walletRepository)
+    public function __construct(private WalletRepositoryPort $walletRepository)
     {
         $this->walletRepository = $walletRepository;
     }

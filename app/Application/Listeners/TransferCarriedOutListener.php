@@ -7,9 +7,7 @@ use App\Ports\Outbound\NotificationServicePort;
 
 class TransferCarriedOutListener
 {
-    private $notificationService;
-
-    public function __construct(NotificationServicePort $notificationService)
+    public function __construct(private NotificationServicePort $notificationService)
     {
         $this->notificationService = $notificationService;
     }

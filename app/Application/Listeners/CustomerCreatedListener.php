@@ -7,9 +7,7 @@ use App\Domain\Events\CustomerCreated;
 
 class CustomerCreatedListener
 {
-    private $walletService;
-
-    public function __construct(WalletService $walletService)
+    public function __construct(private WalletService $walletService)
     {
         $this->walletService = $walletService;
     }

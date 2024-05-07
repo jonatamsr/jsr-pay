@@ -11,14 +11,10 @@ use Illuminate\Events\Dispatcher;
 
 class CustomerService implements CustomerServicePort
 {
-    private $customerRepository;
-    private $customerValidator;
-    private $eventDispatcher;
-
     public function __construct(
-        CustomerRepositoryPort $customerRepository,
-        ValidateCustomerCreationService $customerValidator,
-        Dispatcher $eventDispatcher
+        private CustomerRepositoryPort $customerRepository,
+        private ValidateCustomerCreationService $customerValidator,
+        private Dispatcher $eventDispatcher
     ) {
         $this->customerRepository = $customerRepository;
         $this->customerValidator = $customerValidator;
